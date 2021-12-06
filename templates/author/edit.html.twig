@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Author{% endblock %}
+
+{% block body %}
+    <h1>Edit Author</h1>
+    {% if(errors|length > 0) %}
+        <h3>The author has the following errors</h3>
+        <ul>
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {{ include('author/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('author_index') }}">back to list</a>
+
+    {{ include('author/_delete_form.html.twig') }}
+{% endblock %}

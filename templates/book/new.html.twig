@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Book{% endblock %}
+
+{% block body %}
+    <h1>Create new Book</h1>
+    {% if(errors|length > 0) %}
+        <h3>The book has the following errors</h3>
+        <ul>
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {{ include('book/_form.html.twig') }}
+
+    <a href="{{ path('book_index') }}">back to list</a>
+{% endblock %}
